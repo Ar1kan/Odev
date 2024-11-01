@@ -3,10 +3,36 @@
         <title>My Portfolio</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <link rel="stylesheet" href="styles.css">
+        <style>
+            .slider {
+                position: relative;
+                width: 100%;
+                max-width: 1000px;
+                margin: auto;
+                overflow: hidden;
+                background-color: black;
+            }
+
+            .slider img {
+                width: 100%;
+                display: none;
+                background-color: black;
+            }
+
+            .slider img:first-child {
+                display: block;
+                background-color: black;
+            }
+        </style>
     </head>
   
     <body class="anabody">
         <header>
+            <div class="slider">
+                <img src="sea2.png" >
+                <img src="ca2.png" >
+                <img src="tab1.png" >
+            </div>
             <div class="giris">
                 <table height="50%" width="100%" class="anatable" >         
                   <tr>                    
@@ -69,7 +95,19 @@
                 <a href="iletisim.html">Contact Me</a>
             </div>
         </footer>
-        
+        <script>
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slider img');
+
+            function showSlides() {
+                slides.forEach((slide, index) => {
+                    slide.style.display = index === slideIndex ? 'block' : 'none';
+                });
+                slideIndex = (slideIndex + 1) % slides.length; 
+            }
+
+            setInterval(showSlides, 4000); 
+        </script>
      </body>
 
 </html>
